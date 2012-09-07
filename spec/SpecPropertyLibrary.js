@@ -9,6 +9,26 @@ describe("PropertyLibrary", function() {
 		expect(library).not.toBeNull();
 	});
 
+	it("should be able to add a value", function() {
+		library.addValue("//media/test", "boom");
+
+		var category = library._library[0];
+		var entry = category._entries[0];
+
+		expect(category.getName()).toBe("media");
+		expect(entry.getName()).toBe("test");
+		expect(entry.getPayload()).toBe("boom");
+	});
+
+	it("should be able to retrieve a local category", function() {
+		library.addValue("//media/test", "boom");
+
+		var category = library.getLocalCategory("media");
+
+		expect(category).not.toBeNull();
+		expect(category.getName()).toBe("media");
+	});
+
 	describe("Utilities", function() {
 
 		it("can determine if a path is valid", function() {
