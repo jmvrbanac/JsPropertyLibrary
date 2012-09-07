@@ -3,7 +3,7 @@
  * A simple object storage library using XPath-like (Ported from AS3)
  * By John Vrbanac - http://www.verticalcue.com/
  * 
- * Licensed under GPL-v3
+ * Licensed under GPLv3
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
