@@ -77,6 +77,10 @@ var PropertyLibraryCategory = Class.extend({
 		entry.payload, payload;
 
 		return entry;
+	},
+
+	getName: function() {
+		return this._name;
 	}
 });
 
