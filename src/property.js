@@ -49,22 +49,22 @@ var PropertyLibraryCategory = Class.extend({
 		}
 	},
 
-	getEntry: function() {
+	getEntry: function(path) {
 		var result = null;
 		if (path.indexOf("/", 1) > 0) {
 			var nextCatName = path.split("/")[1];
-			for (var i = 0; i < _childCategories.length; i++)
+			for (var i = 0; i < this._childCategories.length; i++)
 			{
-				if (nextCatName === _childCategories[i].name) {
+				if (nextCatName === this._childCategories[i].getName()) {
 					var nextPath = path.substring(path.indexOf("/", 1));
-					result = _childCategories[i].getEntry(nextPath);
+					result = this._childCategories[i].getEntry(nextPath);
 				}
 			}
 		} else {
 			var entryName = path.substring(1);
-			for (var j = 0; j < _entries.length; j++) {
-				if (entryName === _entries[j].name) {
-					result = _entries[j];
+			for (var j = 0; j < this._entries.length; j++) {
+				if (entryName === this._entries[j].getName()) {
+					result = this._entries[j];
 				}
 			}
 		}
@@ -73,8 +73,8 @@ var PropertyLibraryCategory = Class.extend({
 
 	createNewEntry: function(name, payload) {
 		var entry = new PropertyLibraryEntry();
-		entry.name = name;
-		entry.payload, payload;
+		entry.setName(name);
+		entry.setPayload(payload);
 
 		return entry;
 	},
